@@ -54,3 +54,9 @@ class EconomyData(commands.Cog):
                 ProgramReceiver.embedFooter(embed, ctx.author)
 
                 await ctx.edit_original_response(embed = embed)
+
+    @commands.slash_command(name = "채집", description = "Cpt 를 모아보세요!")
+    async def randomCoinpoint(self, ctx):
+        await ctx.response.defer(); await asyncio.sleep(3)
+
+        pass
