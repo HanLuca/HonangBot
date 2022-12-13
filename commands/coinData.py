@@ -69,7 +69,7 @@ class CoinData(commands.Cog):
 
     @stock.sub_command(name = "정보", description = "코인 가격을 확인해보세요!")
     async def stockInfo(self, ctx):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         if DataReceiver.check(ctx.author.id) == False:
             await ctx.edit_original_response(embed = ProgramReceiver.embedError(f"\❓{ctx.author.mention} 님의 계정이 존재하지 않습니다.\n**`/계정생성`** 명령어를 통해 가입해주세요.", ctx.author))
@@ -107,7 +107,7 @@ class CoinData(commands.Cog):
         ),
         amount : int = 1
     ):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         if DataReceiver.check(ctx.author.id) == False:
             await ctx.edit_original_response(embed = ProgramReceiver.embedError(f"\❓{ctx.author.mention} 님의 계정이 존재하지 않습니다.\n**`/계정생성`** 명령어를 통해 가입해주세요.", ctx.author))
@@ -159,7 +159,7 @@ class CoinData(commands.Cog):
         ),
         amount : int = 1
     ):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         if DataReceiver.check(ctx.author.id) == False:
             await ctx.edit_original_response(embed = ProgramReceiver.embedError(f"\❓{ctx.author.mention} 님의 계정이 존재하지 않습니다.\n**`/계정생성`** 명령어를 통해 가입해주세요.", ctx.author))

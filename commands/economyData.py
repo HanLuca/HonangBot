@@ -12,7 +12,7 @@ class EconomyData(commands.Cog):
 
     @commands.slash_command(name = "도박", description = "Honang 봇에서 도박을 즐겨보세요!")
     async def randomCoinpoint(self, ctx, betting : int = 1000):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         #! Variables !#
         basicPath = f"USERDATA/{ctx.author.id}"
@@ -57,6 +57,6 @@ class EconomyData(commands.Cog):
 
     @commands.slash_command(name = "채집", description = "Cpt 를 모아보세요!")
     async def randomCoinpoint(self, ctx):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
-        pass
+        await ctx.edit_original_response("개발중인 기능입니다!")

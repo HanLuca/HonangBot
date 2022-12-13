@@ -17,7 +17,8 @@ load_dotenv()
 token = os.getenv("TOKEN")
 
 bot = commands.Bot (
-    command_prefix = ["<@1029323692464951398> "],
+    command_prefix = ["<@1029323692464951398> ", "!! "],
+    intents = disnake.Intents.all()
     # test_guilds = [1028908853162688572]
 )
 bot.add_cog(UserData(bot))
@@ -26,13 +27,6 @@ bot.add_cog(EconomyData(bot))
 bot.add_cog(Functions(bot))
 
 #! File !#
-dirPath = ("C:/Users/hanlu/OneDrive/Desktop/HonangBot-V2")
-executePath = ("C:/Users/hanlu/OneDrive/Desktop/HonangBot-V2/Start.bat")
-
-def runFile(path):
-    os.chdir(dirPath)
-    os.system(path)
-
 @bot.event
 async def on_ready():
     activity = disnake.Game(name = "[ V - 0.02 ] 탄생중입니다 😓", type = 2)

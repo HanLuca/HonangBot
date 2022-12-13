@@ -14,9 +14,13 @@ class UserData(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name = "계정생성", description = "계정을 생성하고 Honang 봇을 즐겨보세요.")
+    @commands.slash_command(name = "계정", description = "계정 기능을 확인하세요!")
+    async def account(self, ctx):
+        pass
+
+    @account.sub_command(name = "생성", description = "계정을 생성하고 Honang 봇을 즐겨보세요.")
     async def makeAccount(self, ctx):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         if DataReceiver.check(ctx.author.id) == True: 
             await ctx.edit_original_response(embed = ProgramReceiver.embedError("\❓이미 계정이 존재합니다.", ctx.author))
@@ -57,9 +61,9 @@ class UserData(commands.Cog):
             await ctx.edit_original_response(embed = embed)
 
 
-    @commands.slash_command(name = "계정조회", description = "당신 또는 멤버의 계정을 조회하고 여러 정보를 확인해보세요!")
+    @account.sub_command(name = "조회", description = "당신 또는 멤버의 계정을 조회하고 여러 정보를 확인해보세요!")
     async def seeAccount(self, ctx, member : disnake.Member = None):
-        await ctx.response.defer(); await asyncio.sleep(3)
+        await ctx.response.defer(); await asyncio.sleep(1)
 
         if member == None: member = ctx.author
         if DataReceiver.check(member.id) == False:
@@ -75,14 +79,12 @@ class UserData(commands.Cog):
                 title = f"{member.name}'S PROFILE",
                 description = f"""
                 {member.mention} 님은 {userAccount[3]} 번째 유저에요!
-
-                **┌────── [ 유저 정보 ] ──────┐**
                 """,
                 color = 0x2f3136
             ); ProgramReceiver.embedFooter(embed, ctx.author)
-            embed.add_field("**\✨ Points**", f"**```{userAccount[0]} Cpt```**", inline = True)
+            embed.add_field("**\✨ Points**", f"**```{userAccount[0]} Cpt```**", inline = False)
             embed.add_field("**\💹 Level**", f"**```{userAccount[1]} Lv```**", inline = True)
-            embed.add_field("**\❇️ Expoints**", f"**```{userAccount[2]} Exp```**", inline = False)
+            embed.add_field("**\❇️ Expoints**", f"**```{userAccount[2]} Exp```**", inline = True)
 
             embed.add_field("**\🕐 Join Time**", f"**<t:{round(userAccount[4])}>** ( **<t:{round(userAccount[4])}:R>** )", inline = False)
 
